@@ -75,13 +75,13 @@ const Experience = () => {
 
           <div className="relative">
             {/* Timeline line */}
-            <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-border" />
+            <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-border to-border rounded-full" />
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               {experiences.map((exp, index) => (
                 <div key={index} className="md:pl-20 relative">
                   {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-6 top-8 w-4 h-4 bg-foreground border-2 border-background" />
+                  <div className="hidden md:block absolute left-6 top-10 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg" />
                   <ExperienceCard {...exp} />
                 </div>
               ))}
