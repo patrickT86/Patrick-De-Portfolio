@@ -1,21 +1,30 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { SkillBadge } from "@/components/SkillBadge";
-import { ArrowRight, Github, Mail, Sparkles } from "lucide-react";
+import { ArrowRight, Github, Mail, Sparkles, Code2, Server, Database, Cloud, Smartphone, Terminal, Cpu, Globe } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 
-const topSkills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "Python",
-  "PHP/Laravel",
-  "AWS",
-  "PostgreSQL",
-  "C#",
-  ".NET",
+const techStacks = [
+  { name: "React", icon: Code2, category: "Frontend" },
+  { name: "Next.js", icon: Globe, category: "Frontend" },
+  { name: "TypeScript", icon: Code2, category: "Language" },
+  { name: "Node.js", icon: Server, category: "Backend" },
+  { name: "Python", icon: Terminal, category: "Language" },
+  { name: "PHP/Laravel", icon: Server, category: "Backend" },
+  { name: "Ruby", icon: Terminal, category: "Language" },
+  { name: "Ruby on Rails", icon: Server, category: "Backend" },
+  { name: "Go", icon: Cpu, category: "Language" },
+  { name: "C#", icon: Code2, category: "Language" },
+  { name: ".NET/ASP.NET", icon: Server, category: "Backend" },
+  { name: "Java/J2EE", icon: Cpu, category: "Backend" },
+  { name: "C++", icon: Cpu, category: "Language" },
+  { name: "Rust", icon: Terminal, category: "Language" },
+  { name: "PostgreSQL", icon: Database, category: "Database" },
+  { name: "MongoDB", icon: Database, category: "Database" },
+  { name: "AWS", icon: Cloud, category: "Cloud" },
+  { name: "Docker", icon: Server, category: "DevOps" },
+  { name: "React Native", icon: Smartphone, category: "Mobile" },
+  { name: "GraphQL", icon: Globe, category: "API" },
 ];
 
 const Index = () => {
@@ -45,10 +54,23 @@ const Index = () => {
               Specialized in AI feature integration and enterprise SaaS platforms.
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-10">
-              {topSkills.map((skill) => (
-                <SkillBadge key={skill} name={skill} />
+            <div className="flex flex-wrap gap-3 mb-10">
+              {techStacks.slice(0, 12).map((tech) => (
+                <div 
+                  key={tech.name}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
+                >
+                  <tech.icon className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
+                  <span className="text-sm font-medium">{tech.name}</span>
+                </div>
               ))}
+              <Link 
+                to="/about"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all duration-300 text-primary text-sm font-medium"
+              >
+                +{techStacks.length - 12} more
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-4">
