@@ -41,6 +41,33 @@ const Contact = () => {
     }));
   };
 
+  const contactInfo = [
+    {
+      icon: Mail,
+      title: "Email",
+      value: "patrick.tracey86@zohomail.com",
+      href: "mailto:patrick.tracey86@zohomail.com",
+    },
+    {
+      icon: Phone,
+      title: "Phone",
+      value: "+1 (206) 809-7210",
+      href: "tel:+12068097210",
+    },
+    {
+      icon: MapPin,
+      title: "Location",
+      value: "Houston, Texas, United States",
+    },
+    {
+      icon: Github,
+      title: "GitHub",
+      value: "github.com/lkrauleidis",
+      href: "https://github.com/lkrauleidis",
+      external: true,
+    },
+  ];
+
   return (
     <Layout>
       <section className="py-16 md:py-24">
@@ -50,61 +77,35 @@ const Contact = () => {
             subtitle="Let's connect and discuss opportunities"
           />
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8">
             {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="flex items-start gap-4 p-6 border-2 border-border bg-card">
-                  <Mail className="h-6 w-6 mt-1 shrink-0" />
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Email</h3>
-                    <a 
-                      href="mailto:patrick.tracey86@zohomail.com" 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      patrick.tracey86@zohomail.com
-                    </a>
+            <div className="space-y-6">
+              <div className="grid sm:grid-cols-2 gap-4">
+                {contactInfo.map((item) => (
+                  <div 
+                    key={item.title}
+                    className="flex items-start gap-4 p-5 rounded-xl border border-border bg-card hover:border-primary/20 hover:shadow-md transition-all duration-300"
+                  >
+                    <div className="p-2.5 rounded-lg bg-primary/10">
+                      <item.icon className="h-5 w-5 text-primary" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="font-semibold mb-1">{item.title}</h3>
+                      {item.href ? (
+                        <a 
+                          href={item.href}
+                          target={item.external ? "_blank" : undefined}
+                          rel={item.external ? "noopener noreferrer" : undefined}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors break-all"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-sm text-muted-foreground">{item.value}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 border-2 border-border bg-card">
-                  <Phone className="h-6 w-6 mt-1 shrink-0" />
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Phone</h3>
-                    <a 
-                      href="tel:+12068097210" 
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      +1 (206) 809-7210
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 border-2 border-border bg-card">
-                  <MapPin className="h-6 w-6 mt-1 shrink-0" />
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Location</h3>
-                    <p className="text-muted-foreground">
-                      Houston, Texas<br />
-                      United States
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4 p-6 border-2 border-border bg-card">
-                  <Github className="h-6 w-6 mt-1 shrink-0" />
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">GitHub</h3>
-                    <a 
-                      href="https://github.com/lkrauleidis" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      github.com/lkrauleidis
-                    </a>
-                  </div>
-                </div>
+                ))}
               </div>
 
               {/* Map */}
@@ -112,9 +113,9 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="border-2 border-border p-6 md:p-8 bg-card">
+            <div className="rounded-xl border border-border p-6 md:p-8 bg-card">
               <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
@@ -126,7 +127,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="border-2"
+                      className="rounded-lg"
                       placeholder="Your name"
                     />
                   </div>
@@ -141,7 +142,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="border-2"
+                      className="rounded-lg"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -157,7 +158,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="border-2"
+                    className="rounded-lg"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -172,7 +173,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    className="border-2 min-h-[150px]"
+                    className="rounded-lg min-h-[150px]"
                     placeholder="Tell me about your project or opportunity..."
                   />
                 </div>
@@ -180,7 +181,7 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   size="lg" 
-                  className="w-full border-2"
+                  className="w-full rounded-xl shadow-lg"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
