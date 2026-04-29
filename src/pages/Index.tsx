@@ -1,30 +1,38 @@
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Mail, Sparkles, Code2, Server, Database, Cloud, Smartphone, Terminal, Cpu, Globe } from "lucide-react";
+import { ArrowRight, Github, Mail, Sparkles, ExternalLink } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import decorifyHero from "@/assets/projects/decorify-hero.jpg";
+import teslaAutopilot from "@/assets/projects/tesla-autopilot.jpg";
+import c3aiGrid from "@/assets/projects/c3ai-grid.jpg";
+import demandIqHero from "@/assets/projects/demand-iq-hero.jpg";
 
-const techStacks = [
-  { name: "React", icon: Code2, category: "Frontend" },
-  { name: "Next.js", icon: Globe, category: "Frontend" },
-  { name: "TypeScript", icon: Code2, category: "Language" },
-  { name: "Node.js", icon: Server, category: "Backend" },
-  { name: "Python", icon: Terminal, category: "Language" },
-  { name: "PHP/Laravel", icon: Server, category: "Backend" },
-  { name: "Ruby", icon: Terminal, category: "Language" },
-  { name: "Ruby on Rails", icon: Server, category: "Backend" },
-  { name: "Go", icon: Cpu, category: "Language" },
-  { name: "C#", icon: Code2, category: "Language" },
-  { name: ".NET/ASP.NET", icon: Server, category: "Backend" },
-  { name: "Java/J2EE", icon: Cpu, category: "Backend" },
-  { name: "C++", icon: Cpu, category: "Language" },
-  { name: "Rust", icon: Terminal, category: "Language" },
-  { name: "PostgreSQL", icon: Database, category: "Database" },
-  { name: "MongoDB", icon: Database, category: "Database" },
-  { name: "AWS", icon: Cloud, category: "Cloud" },
-  { name: "Docker", icon: Server, category: "DevOps" },
-  { name: "React Native", icon: Smartphone, category: "Mobile" },
-  { name: "GraphQL", icon: Globe, category: "API" },
+const featuredHighlights = [
+  {
+    title: "Decorify",
+    company: "Wayfair",
+    image: decorifyHero,
+    blurb: "AI room redesign experience for millions of homeowners.",
+  },
+  {
+    title: "Autopilot Tools",
+    company: "Tesla",
+    image: teslaAutopilot,
+    blurb: "Fleet telemetry and Autopilot rollout dashboards.",
+  },
+  {
+    title: "Energy Intelligence",
+    company: "C3 AI",
+    image: c3aiGrid,
+    blurb: "Enterprise AI for integrated energy management.",
+  },
+  {
+    title: "Demand IQ",
+    company: "Solar SaaS",
+    image: demandIqHero,
+    blurb: "Lead generation platform powering thousands of installers.",
+  },
 ];
 
 const Index = () => {
@@ -54,30 +62,17 @@ const Index = () => {
               Specialized in AI feature integration and enterprise SaaS platforms.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-10">
-              {techStacks.slice(0, 12).map((tech) => (
-                <div 
-                  key={tech.name}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 group"
-                >
-                  <tech.icon className="h-4 w-4 text-primary group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-medium">{tech.name}</span>
-                </div>
-              ))}
-              <Link 
-                to="/about"
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all duration-300 text-primary text-sm font-medium"
-              >
-                +{techStacks.length - 12} more
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mb-10">
               <Button size="lg" asChild className="rounded-xl text-base shadow-lg hover:shadow-xl transition-all">
                 <Link to="/contact">
                   Get In Touch
                   <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="secondary" asChild className="rounded-xl text-base">
+                <Link to="/projects">
+                  View Projects
+                  <ExternalLink className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="rounded-xl text-base">
@@ -94,6 +89,44 @@ const Index = () => {
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex items-start justify-center p-2">
             <div className="w-1 h-2 bg-muted-foreground/50 rounded-full" />
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Work Mosaic */}
+      <section className="py-16 md:py-24 border-t border-border">
+        <div className="container mx-auto px-4">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-2">Selected Work</p>
+              <h2 className="text-3xl md:text-4xl font-bold">Production systems used by millions</h2>
+            </div>
+            <Link to="/projects" className="hidden md:inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+              All projects <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {featuredHighlights.map((item) => (
+              <Link
+                key={item.title}
+                to="/projects"
+                className="group relative rounded-2xl overflow-hidden border border-border bg-card aspect-[4/5] shadow-md hover:shadow-2xl transition-all duration-500"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-xs uppercase tracking-wider text-primary font-semibold mb-1">{item.company}</p>
+                  <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground line-clamp-2">{item.blurb}</p>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
