@@ -1,64 +1,201 @@
 import { Layout } from "@/components/Layout";
 import { SectionTitle } from "@/components/SectionTitle";
 import { FlipProjectCard } from "@/components/FlipProjectCard";
+import { ProjectShowcase, type ShowcaseProject } from "@/components/ProjectShowcase";
+import { ArchitectureDiagram } from "@/components/ArchitectureDiagram";
 import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
+import {
+  Github,
+  Smartphone,
+  Globe,
+  Server,
+  Database,
+  Brain,
+  Cloud,
+  Activity,
+  Cpu,
+  ShieldCheck,
+  Workflow,
+  Layers,
+  Zap,
+  GitBranch,
+} from "lucide-react";
 
-const featuredProjects = [
+import decorifyHero from "@/assets/projects/decorify-hero.jpg";
+import wayfairHero from "@/assets/projects/wayfair-hero.jpg";
+import demandIqHero from "@/assets/projects/demand-iq-hero.jpg";
+import presidiumHero from "@/assets/projects/presidium-hero.jpg";
+import teslaAutopilot from "@/assets/projects/tesla-autopilot.jpg";
+import teslaDashboard from "@/assets/projects/tesla-dashboard.jpg";
+import c3aiDashboard from "@/assets/projects/c3ai-dashboard.jpg";
+import c3aiGrid from "@/assets/projects/c3ai-grid.jpg";
+
+const featuredProjects: ShowcaseProject[] = [
   {
-    title: "Decorify - AI Interior Designer",
-    description: "Led development of AI-driven customer experiences at Wayfair. Decorify transforms rooms with AI, allowing users to upload images and see them redesigned in seconds with shoppable products.",
-    technologies: ["React", "Next.js", "TypeScript", "AI/ML", "Python", "FastAPI"],
-    liveUrl: "https://www.wayfairnext.com/decorify",
-    imageUrl: "/projects/decorify.png",
-    myRole: "Lead Software Engineer",
+    title: "Decorify — AI Interior Designer",
+    company: "Wayfair",
+    period: "2023 – Present",
+    role: "Lead Software Engineer",
+    tagline: "Reimagine any room in seconds with shoppable AI generated designs.",
+    description:
+      "Decorify is Wayfair's flagship AI experience that transforms photos of empty or existing rooms into beautifully styled spaces — every item shoppable in real time. I led the end-to-end engineering across the web app, iOS app, and AI orchestration services.",
     contributions: [
-      "Led development supporting millions of monthly visitors, increasing user engagement by 20%+",
-      "Designed complex frontend systems using React, Next.js, and TypeScript",
-      "Developed backend orchestration and data ingestion services for AI-powered experiences",
-      "Led architecture decisions across multiple teams and mentored 4-6 engineers",
+      "Led web + mobile architecture serving millions of monthly visitors with 20%+ engagement lift",
+      "Built React / Next.js front-end and the iOS experience integrating diffusion-based room generation",
+      "Designed FastAPI orchestration layer routing image, vision, and product-matching models",
+      "Mentored 4–6 engineers across frontend, backend, and ML integration teams",
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "Swift / iOS", "Python", "FastAPI", "AI / Diffusion", "AWS"],
+    heroImage: decorifyHero,
+    links: [
+      { label: "wayfairnext.com/decorify", url: "https://www.wayfairnext.com/decorify", type: "live" },
+      { label: "App Store", url: "https://apps.apple.com/us/app/decorify/id6472541408", type: "ios" },
     ],
   },
   {
     title: "Wayfair E-commerce Platform",
-    description: "Contributed to Wayfair's main web and mobile applications, shipping features used by millions of global users. Reduced page load times by ~30% through optimized rendering.",
-    technologies: ["React", "React Native", "TypeScript", "Node.js", "Python", "CI/CD"],
-    liveUrl: "https://www.wayfair.com",
-    imageUrl: "/projects/wayfair.png",
-    myRole: "Lead Software Engineer",
+    company: "Wayfair",
+    period: "2023 – Present",
+    role: "Lead Software Engineer",
+    tagline: "Shipping features at scale for one of the largest home retailers in the world.",
+    description:
+      "Contributed to Wayfair's core web and mobile commerce platform. Drove performance, payments, and reliability initiatives that compound across millions of daily sessions.",
     contributions: [
-      "Reduced page load times by ~30% through optimized rendering and data fetching",
-      "Implemented payment and financing flows, improving checkout completion by 10-15%",
-      "Reduced production regressions 40% via improved testing and CI/CD pipelines",
-      "Shipped features via React Native for mobile applications",
+      "Reduced critical page load times by ~30% via rendering and data-fetching optimizations",
+      "Implemented payment and financing flows that lifted checkout completion 10–15%",
+      "Cut production regressions 40% with hardened testing and CI/CD pipelines",
+      "Shipped React Native features used across Wayfair's mobile apps",
+    ],
+    technologies: ["React", "React Native", "TypeScript", "Node.js", "PHP", "Python", "GraphQL", "CI/CD"],
+    heroImage: wayfairHero,
+    links: [{ label: "wayfair.com", url: "https://www.wayfair.com", type: "live" }],
+  },
+  {
+    title: "Demand IQ — Solar Lead Generation SaaS",
+    company: "Demand-IQ",
+    period: "2020 – 2023",
+    role: "Senior Full-Stack Software Engineer",
+    tagline: "Conversational solar quoting that turns visitors into qualified homeowner leads.",
+    description:
+      "Demand IQ powers lead generation for solar installers across the United States. I built core SaaS features — from the embeddable widget and dashboards to the iOS and Android companion apps — used by thousands of B2B customers.",
+    contributions: [
+      "Improved dashboard task completion time by ~25% via UX and data-model refactors",
+      "Implemented Node.js + Python APIs for secure address, utility, and pricing data ingestion",
+      "Integrated subscription billing, reducing payment support tickets by 30%",
+      "Shipped Hero by Demand IQ companion apps on iOS and Android",
+    ],
+    technologies: ["Vue", "Nuxt.js", "TypeScript", "Node.js", "Python", "PostgreSQL", "iOS", "Android"],
+    heroImage: demandIqHero,
+    links: [
+      { label: "demand-iq.com", url: "https://demand-iq.com", type: "live" },
+      {
+        label: "iOS – Hero",
+        url: "https://apps.apple.com/us/app/hero-from-demand-iq/id6443422119",
+        type: "ios",
+      },
+      {
+        label: "Google Play",
+        url: "https://play.google.com/store/apps/developer?id=Demand+IQ&hl=en",
+        type: "android",
+      },
     ],
   },
   {
-    title: "Demand-IQ SaaS Platform",
-    description: "Built and scaled core features for the Demand-IQ SaaS platform supporting thousands of B2B users in demand-generation workflows.",
-    technologies: ["Vue", "Nuxt.js", "TypeScript", "Node.js", "Python", "PostgreSQL"],
-    liveUrl: "https://demand-iq.com",
-    imageUrl: "/projects/demand-iq.png",
-    myRole: "Senior Full-Stack Software Engineer",
+    title: "Tesla — Autopilot & Owner Experience",
+    company: "Tesla",
+    period: "2016 – 2020",
+    role: "Senior Full-Stack Software Engineer",
+    tagline: "Internal tools and customer-facing features for the world's most software-defined cars.",
+    description:
+      "Worked on full-stack internal platforms and customer touch points around Tesla's vehicle software — including Autopilot upgrade tooling, owner-facing dashboards, and operational analytics that surfaced fleet telemetry to engineering teams.",
     contributions: [
-      "Improved dashboard usability, reducing user task completion time by ~25%",
-      "Implemented backend APIs with Node.js and Python for secure data ingestion",
-      "Integrated subscription billing, reducing payment-related support tickets by 30%",
-      "Optimized database queries and API response times, improving performance by 20%+",
+      "Built React + TypeScript dashboards visualizing fleet telemetry and Autopilot rollout health",
+      "Developed Python / Node.js services to ingest high-volume operational vehicle data",
+      "Integrated predictive analytics and anomaly-detection pipelines into real-time dashboards",
+      "Collaborated with hardware and Autopilot teams during the radar-enabled HW2 transition",
+    ],
+    technologies: ["React", "TypeScript", "Node.js", "Python", "PostgreSQL", "Kafka", "AWS", "Data Pipelines"],
+    heroImage: teslaAutopilot,
+    gallery: [
+      { src: teslaDashboard, caption: "In-vehicle UI exploration" },
+      { src: teslaAutopilot, caption: "Autopilot sensor visualization" },
+    ],
+    links: [
+      { label: "tesla.com", url: "https://www.tesla.com", type: "live" },
+      {
+        label: "Autopilot HW2 (The Verge)",
+        url: "https://www.theverge.com/2016/9/11/12880814/tesla-preparing-significant-autopilot-upgrade-will-use-radar-as",
+        type: "article",
+      },
+      {
+        label: "Bloomberg Model 3 Survey",
+        url: "https://www.bloomberg.com/graphics/2019-tesla-model-3-survey/",
+        type: "article",
+      },
     ],
   },
   {
-    title: "Presidium Health Platform",
-    description: "Developed secure healthcare web applications handling sensitive patient and operational data with HIPAA compliance.",
-    technologies: ["React", "TypeScript", "Python", "Django", "HIPAA", "Secure APIs"],
-    liveUrl: "https://presidiumhealth.com",
-    imageUrl: "/projects/presidiumhealth.png",
-    myRole: "Senior Software Engineer",
+    title: "C3 AI — Enterprise Energy Intelligence",
+    company: "C3 AI",
+    period: "2012 – 2014",
+    role: "Full-Stack Software Engineer",
+    tagline: "Enterprise AI applications powering integrated energy management with SAIC.",
+    description:
+      "Built full-stack components of C3's enterprise AI platform during the SAIC strategic alliance — focused on integrated energy management for commercial, industrial, and government customers. Delivered analytics dashboards over big-data backends with AI-assisted insights.",
     contributions: [
-      "Built backend services in Python (Django) within HIPAA-compliant environments",
-      "Implemented role-based access control and secure data workflows",
-      "Improved system reliability, reducing production issues by 35%",
-      "Collaborated with healthcare stakeholders to translate clinical needs into software",
+      "Built React + TypeScript analytics UIs over PHP/Laravel and Node.js services",
+      "Designed REST and GraphQL APIs exposing AI-powered energy insights to enterprise clients",
+      "Implemented event-driven workflows for predictive maintenance and grid optimization",
+      "Added monitoring, logging, and SLOs to harden AI-integrated production features",
+    ],
+    technologies: ["React", "TypeScript", "PHP", "Laravel", "Node.js", "GraphQL", "Cassandra", "AWS"],
+    heroImage: c3aiDashboard,
+    gallery: [
+      { src: c3aiGrid, caption: "Smart grid + analytics overlay" },
+      { src: c3aiDashboard, caption: "Energy management dashboard" },
+    ],
+    links: [
+      { label: "c3.ai", url: "https://c3.ai/", type: "live" },
+      {
+        label: "SAIC + C3 Alliance",
+        url: "https://www.renewableenergyworld.com/power-grid/smart-grids/at-distributech-c3-saic-expand-alliance-to-deliver-integrated-energy-solutions/",
+        type: "article",
+      },
+      {
+        label: "FMLink Coverage",
+        url: "https://www.fmlink.com/saic-c3-team-up-to-deliver-integrated-energy-management-solutions-for-commercial-industrial-and-government-customers/",
+        type: "article",
+      },
+    ],
+  },
+  {
+    title: "Presidium Health — Home-Based Care Platform",
+    company: "Presidium Health Corp",
+    period: "2014 – 2016",
+    role: "Senior Software Engineer",
+    tagline: "HIPAA-compliant clinical platform connecting field clinicians with high-acuity patients.",
+    description:
+      "Presidium Health delivers in-home medical care for medically complex patients. I built the secure clinician web platform plus the patient-facing mobile experience used during home visits.",
+    contributions: [
+      "Built secure Python/Django + Node.js services within HIPAA-compliant infrastructure",
+      "Implemented role-based access control and audited clinical data workflows",
+      "Reduced production incidents 35% with improved monitoring and CI/CD",
+      "Shipped the Presidium Patient mobile app (iOS + Android) for at-home care visits",
+    ],
+    technologies: ["React", "TypeScript", "Python", "Django", "Node.js", "PostgreSQL", "HIPAA", "Mobile"],
+    heroImage: presidiumHero,
+    links: [
+      { label: "presidiumhealth.com", url: "https://presidiumhealth.com/", type: "live" },
+      {
+        label: "Patient App (Play)",
+        url: "https://play.google.com/store/apps/details?id=com.presidiumhealth.patient&hl=en-US",
+        type: "android",
+      },
+      {
+        label: "Patient App (iOS)",
+        url: "https://iphone.apkpure.com/app/presidium-patient/com.presidiumhealth.patient",
+        type: "ios",
+      },
     ],
   },
 ];
@@ -139,11 +276,82 @@ const Projects = () => {
             subtitle="Live production applications I've built and contributed to"
           />
 
-          {/* Featured Projects - Flip Cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-20">
-            {featuredProjects.map((project) => (
-              <FlipProjectCard key={project.title} {...project} />
+          {/* Featured Projects - Showcase */}
+          <div className="space-y-10 mb-20">
+            {featuredProjects.map((project, idx) => (
+              <ProjectShowcase key={project.title} project={project} reverse={idx % 2 === 1} />
             ))}
+          </div>
+
+          {/* Architecture Diagrams */}
+          <div className="space-y-8 mb-20">
+            <SectionTitle
+              title="Selected Architecture"
+              subtitle="How some of these production systems are designed end-to-end"
+            />
+
+            <ArchitectureDiagram
+              title="Decorify — AI Room Redesign Pipeline"
+              description="From a homeowner's photo to a fully shoppable, AI-styled room in under a few seconds."
+              rows={[
+                {
+                  title: "Client",
+                  nodes: [
+                    { label: "Web App", sub: "Next.js + React", icon: Globe },
+                    { label: "iOS App", sub: "Swift", icon: Smartphone },
+                    { label: "CDN Edge", sub: "Image + asset cache", icon: Cloud },
+                  ],
+                },
+                {
+                  title: "API & Orchestration",
+                  nodes: [
+                    { label: "BFF Gateway", sub: "Node.js / GraphQL", icon: Server },
+                    { label: "AI Orchestrator", sub: "FastAPI (Python)", icon: Workflow },
+                    { label: "Auth & Quotas", sub: "OAuth / rate limits", icon: ShieldCheck },
+                  ],
+                },
+                {
+                  title: "AI & Data",
+                  nodes: [
+                    { label: "Diffusion Model", sub: "Room generation", icon: Brain },
+                    { label: "Vision Tagging", sub: "Object detection", icon: Cpu },
+                    { label: "Product Match", sub: "Vector search", icon: Layers },
+                    { label: "Catalog DB", sub: "PostgreSQL", icon: Database },
+                  ],
+                },
+              ]}
+            />
+
+            <ArchitectureDiagram
+              title="C3 AI — Energy Intelligence Platform"
+              description="Streaming sensor and grid data into AI-powered analytics surfaces for enterprise operators."
+              rows={[
+                {
+                  title: "Sources",
+                  nodes: [
+                    { label: "Smart Meters", sub: "IoT telemetry", icon: Activity },
+                    { label: "Grid SCADA", sub: "Operational data", icon: Zap },
+                    { label: "Weather APIs", sub: "Forecast feeds", icon: Cloud },
+                  ],
+                },
+                {
+                  title: "Pipeline",
+                  nodes: [
+                    { label: "Kafka Streams", sub: "Event ingestion", icon: GitBranch },
+                    { label: "ETL / Spark", sub: "Aggregation", icon: Workflow },
+                    { label: "Time-series DB", sub: "Cassandra", icon: Database },
+                  ],
+                },
+                {
+                  title: "Intelligence",
+                  nodes: [
+                    { label: "AI Models", sub: "Predictive maintenance", icon: Brain },
+                    { label: "GraphQL API", sub: "Insights surface", icon: Server },
+                    { label: "Analytics UI", sub: "React dashboards", icon: Globe },
+                  ],
+                },
+              ]}
+            />
           </div>
 
           {/* Divider */}
