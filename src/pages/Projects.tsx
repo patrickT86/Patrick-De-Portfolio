@@ -21,8 +21,9 @@ import {
   GitBranch,
 } from "lucide-react";
 
-import decorifyHero from "@/assets/projects/decorify-hero.jpg";
 import wayfairHero from "@/assets/projects/wayfair-hero.jpg";
+import leeHealthHero from "@/assets/projects/leehealth-hero.jpg";
+import mileNowHero from "@/assets/projects/milenow-hero.jpg";
 import demandIqHero from "@/assets/projects/demand-iq-hero.jpg";
 import presidiumHero from "@/assets/projects/presidium-hero.jpg";
 import teslaAutopilot from "@/assets/projects/tesla-autopilot.jpg";
@@ -32,34 +33,13 @@ import c3aiGrid from "@/assets/projects/c3ai-grid.jpg";
 
 const featuredProjects: ShowcaseProject[] = [
   {
-    title: "Decorify — AI Interior Designer",
-    company: "Wayfair",
-    period: "2023 – Present",
-    role: "Lead Software Engineer",
-    tagline: "Reimagine any room in seconds with shoppable AI generated designs.",
-    description:
-      "Decorify is Wayfair's flagship AI experience that transforms photos of empty or existing rooms into beautifully styled spaces — every item shoppable in real time. I led the end-to-end engineering across the web app, iOS app, and AI orchestration services.",
-    contributions: [
-      "Led web + mobile architecture serving millions of monthly visitors with 20%+ engagement lift",
-      "Built React / Next.js front-end and the iOS experience integrating diffusion-based room generation",
-      "Designed FastAPI orchestration layer routing image, vision, and product-matching models",
-      "Mentored 4–6 engineers across frontend, backend, and ML integration teams",
-    ],
-    technologies: ["React", "Next.js", "TypeScript", "Swift / iOS", "Python", "FastAPI", "AI / Diffusion", "AWS"],
-    heroImage: decorifyHero,
-    links: [
-      { label: "wayfairnext.com/decorify", url: "https://www.wayfairnext.com/decorify", type: "live" },
-      { label: "App Store", url: "https://apps.apple.com/us/app/decorify/id6472541408", type: "ios" },
-    ],
-  },
-  {
     title: "Wayfair E-commerce Platform",
-    company: "Wayfair",
+    company: "Eliassen Group · Wayfair",
     period: "2023 – Present",
     role: "Lead Software Engineer",
     tagline: "Shipping features at scale for one of the largest home retailers in the world.",
     description:
-      "Contributed to Wayfair's core web and mobile commerce platform. Drove performance, payments, and reliability initiatives that compound across millions of daily sessions.",
+      "Engaged via Eliassen Group on Wayfair's core web and mobile commerce platform. Drove performance, payments, and reliability initiatives that compound across millions of daily sessions, including contributions to AI-powered Decorify room redesign experiences.",
     contributions: [
       "Reduced critical page load times by ~30% via rendering and data-fetching optimizations",
       "Implemented payment and financing flows that lifted checkout completion 10–15%",
@@ -68,7 +48,50 @@ const featuredProjects: ShowcaseProject[] = [
     ],
     technologies: ["React", "React Native", "TypeScript", "Node.js", "PHP", "Python", "GraphQL", "CI/CD"],
     heroImage: wayfairHero,
-    links: [{ label: "wayfair.com", url: "https://www.wayfair.com", type: "live" }],
+    links: [
+      { label: "wayfair.com", url: "https://www.wayfair.com", type: "live" },
+      { label: "Decorify", url: "https://www.wayfairnext.com/decorify", type: "live" },
+    ],
+  },
+  {
+    title: "Lee Health — Find a Doctor Platform",
+    company: "Eliassen Group · Lee Health",
+    period: "2023 – Present",
+    role: "Lead Software Engineer",
+    tagline: "A modern provider directory connecting Southwest Florida patients with the right care.",
+    description:
+      "Delivered through Eliassen Group, I led full-stack work on Lee Health's provider directory and physician profile experience. The platform helps thousands of patients search, filter, and book the right doctors across one of Florida's largest non-profit health systems.",
+    contributions: [
+      "Built a fast, accessible React + TypeScript provider search with faceted filters and geo-aware results",
+      "Implemented Node.js APIs aggregating provider, location, and availability data into a unified profile model",
+      "Hardened HIPAA-aligned data flows, audit logging, and SSO integrations for clinical content authoring",
+      "Improved Lighthouse scores 35%+ and search-to-book conversion through UX and performance work",
+    ],
+    technologies: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "Sitecore", "HIPAA", "Azure"],
+    heroImage: leeHealthHero,
+    links: [
+      { label: "leehealth.org/find-a-doctor", url: "https://www.leehealth.org/find-a-doctor", type: "live" },
+    ],
+  },
+  {
+    title: "Mile Now — Mileage & Trip Tracking SaaS",
+    company: "Eliassen Group · Mile Now",
+    period: "2023 – Present",
+    role: "Lead Software Engineer",
+    tagline: "Automatic GPS mileage tracking and IRS-ready expense reporting for businesses and freelancers.",
+    description:
+      "Engaged through Eliassen Group as the lead engineer on Mile Now — a mileage tracking and expense reporting platform with automatic GPS trip capture, web dashboards, and mobile companion apps. I owned architecture across the web, API, and mobile clients.",
+    contributions: [
+      "Architected end-to-end platform: React + TypeScript dashboards, Laravel / Node.js APIs, PostgreSQL data layer",
+      "Built GPS trip capture and classification engine, accurately separating business vs. personal miles",
+      "Implemented IRS-ready PDF/CSV expense report generation and accounting integrations",
+      "Shipped iOS and Android mobile clients with offline trip sync and battery-efficient location tracking",
+    ],
+    technologies: ["React", "TypeScript", "Laravel", "Node.js", "PostgreSQL", "iOS", "Android", "AWS"],
+    heroImage: mileNowHero,
+    links: [
+      { label: "milenow.com", url: "http://milenow.com", type: "live" },
+    ],
   },
   {
     title: "Demand IQ — Solar Lead Generation SaaS",
