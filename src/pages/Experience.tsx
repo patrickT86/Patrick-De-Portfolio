@@ -4,21 +4,22 @@ import { ExperienceCard } from "@/components/ExperienceCard";
 
 const experiences = [
   {
-    company: "Wayfair",
+    company: "Eliassen Group",
     role: "Lead Software Engineer",
     period: "May 2023 – Present",
     location: "Houston, TX",
     description: [
-      "Led development of large-scale React and Next.js applications with TypeScript, powering customer-facing and internal e-commerce platforms.",
-      "Designed and implemented backend services using PHP, Laravel, Node.js, and Python, supporting high-traffic, data-intensive workflows.",
-      "Integrated AI-driven personalization and recommendation features into frontend and backend systems to improve product discovery and user engagement.",
-      "Architected reusable frontend components, state management patterns, and API contracts for complex operational dashboards.",
-      "Conducted technical design reviews, enforced coding standards, and mentored engineers across frontend and backend development.",
+      "Engaged through Eliassen Group as a Lead Software Engineer delivering full-stack solutions for enterprise clients across e-commerce, healthcare, and SaaS domains.",
+      "Led development of large-scale React, Next.js, and TypeScript applications for Wayfair's customer-facing and internal e-commerce platforms, including AI-powered Decorify experiences.",
+      "Built provider directory and patient-facing modules for Lee Health, integrating secure search, scheduling, and HIPAA-aligned data workflows.",
+      "Architected the Mile Now mileage tracking platform end-to-end — Node.js / Laravel APIs, PostgreSQL data modeling, and React + mobile clients with GPS trip capture.",
+      "Conducted technical design reviews, enforced coding standards, and mentored engineers across frontend, backend, and mobile teams on every client engagement.",
     ],
     projects: [
-      { label: "Decorify", url: "https://www.wayfairnext.com/decorify" },
-      { label: "Decorify iOS", url: "https://apps.apple.com/us/app/decorify/id6472541408" },
-      { label: "wayfair.com", url: "https://www.wayfair.com" },
+      { label: "Eliassen Group", url: "https://www.eliassen.com/" },
+      { label: "Wayfair", url: "https://www.wayfair.com" },
+      { label: "Lee Health – Find a Doctor", url: "https://www.leehealth.org/find-a-doctor" },
+      { label: "Mile Now", url: "http://milenow.com" },
     ],
   },
   {
